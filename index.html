@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Yara ❤️</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f2e7ff; /* Soft purple background */
+        text-align: center;
+        padding: 50px;
+        font-family: "Lobster", cursive; /* Custom font for a romantic touch */
+      }
+      .heart {
+        color: purple;
+        font-size: 80px;
+      }
+      .hidden-message {
+        display: none;
+        margin-top: 30px;
+        font-size: 24px;
+        color: #6a0dad; /* Dark purple */
+        animation: fadeIn 1.5s ease-in-out;
+      }
+      .img-container {
+        position: relative;
+        height: 800px; /* Ensure all images have consistent size */
+        overflow: hidden;
+      }
+      .img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+        opacity: 1;
+      }
+      .quote-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        pointer-events: none;
+      }
+      .img-container:hover .quote-overlay {
+        opacity: 1;
+      }
+      .carousel-message {
+        font-size: 20px;
+        margin-top: 20px;
+        color: #9b59b6; /* Vibrant purple */
+        animation: slideIn 2s ease-in-out infinite alternate;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes slideIn {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+      #revealMessage {
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #9b59b6; /* Vibrant purple */
+        color: white;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        border-radius: 25px;
+        transition: background-color 0.3s ease-in-out;
+      }
+      #revealMessage:hover {
+        background-color: #8e44ad; /* Darker purple on hover */
+      }
+      .confetti {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9999;
+        display: none;
+      }
+      .confetti span {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: #9b59b6; /* Purple confetti */
+        position: absolute;
+        border-radius: 50%;
+        animation: fall 5s ease-in-out infinite;
+      }
+      @keyframes fall {
+        0% {
+          transform: translateY(-100px);
+        }
+        100% {
+          transform: translateY(100vh);
+        }
+      }
+      #countdown {
+        margin-top: 30px;
+        font-size: 28px;
+        color: #9b59b6; /* Vibrant purple */
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="display-4">
+      To My Beautiful Yara <span class="heart">❤️</span>
+    </h1>
+    <p class="lead">You make my life brighter every day!</p>
+
+    <div class="row">
+      <div class="col-md-4 img-container">
+        <img
+          src="./images/10.jpg.jpeg"
+          alt="Image 1"
+          class="img-fluid rounded"
+        />
+        <div class="quote-overlay">"You are my everything"</div>
+      </div>
+      <div class="col-md-4 img-container">
+        <img
+          src="./images/9.jpg.jpeg"
+          alt="Image 2"
+          class="img-fluid rounded"
+        />
+        <div class="quote-overlay">"Forever my love"</div>
+      </div>
+      <div class="col-md-4 img-container">
+        <img
+          src="./images/8.jpg.jpeg"
+          alt="Image 3"
+          class="img-fluid rounded"
+        />
+        <div class="quote-overlay">"No one can make me smile like you do!"</div>
+      </div>
+      <div class="col-md-4 img-container">
+        <img
+          src="./images/7.jpg.jpeg"
+          alt="Image 4"
+          class="img-fluid rounded"
+        />
+        <div class="quote-overlay">"You make my heart skip a beat"</div>
+      </div>
+      <div class="col-md-4 img-container">
+        <img
+          src="./images/6.jpg.jpeg"
+          alt="Image 5"
+          class="img-fluid rounded"
+        />
+        <div class="quote-overlay">"You are my sunshine"</div>
+      </div>
+      <div class="col-md-4 img-container">
+        <img
+          src="./images/5.jpg.jpeg"
+          alt="Image 6"
+          class="img-fluid rounded"
+        />
+        <div class="quote-overlay">"My life is brighter because of you!"</div>
+      </div>
+      <div class="col-md-4 img-container">
+        <img
+          src="./images/4.jpg.jpeg"
+          alt="Image 7"
+          class="img-fluid rounded"
+        />
+        <div class="quote-overlay">"Loving you feels like home"</div>
+      </div>
+      <div class="col-md-4 img-container">
+        <img
+          src="./images/3.jpeg.jpeg"
+          alt="Image 8"
+          class="img-fluid rounded"
+        />
+        <div class="quote-overlay">"You make my heart soar"</div>
+      </div>
+      <div class="col-md-4 img-container">
+        <img
+          src="./images/2.jpeg.jpeg"
+          alt="Image 9"
+          class="img-fluid rounded"
+        />
+        <div class="quote-overlay">
+          "In every beat of my heart, there’s you"
+        </div>
+      </div>
+      <div class="col-md-4 img-container">
+        <img
+          src="./images/1.jpeg.jpeg"
+          alt="Image 10"
+          class="img-fluid rounded"
+        />
+        <div class="quote-overlay">"With you, my heart feels at peace"</div>
+      </div>
+      <div class="col-md-4 img-container">
+        <img src="./images/11.jpg" alt="Image 11" class="img-fluid rounded" />
+        <div class="quote-overlay">"You are my everything"</div>
+      </div>
+      <div class="col-md-4 img-container">
+        <img src="./images/12.jpg" alt="Image 12" class="img-fluid rounded" />
+        <div class="quote-overlay">"Forever my love"</div>
+      </div>
+    </div>
+
+    <button id="revealMessage" class="btn mt-4">Click for a Surprise!</button>
+    <div id="message" class="hidden-message">
+      I love you more than words can say! 💖
+    </div>
+
+    <div id="countdown"></div>
+
+    <div class="confetti">
+      <span style="left: 10%; top: 10%"></span>
+      <span style="left: 30%; top: 20%"></span>
+      <span style="left: 50%; top: 30%"></span>
+      <span style="left: 70%; top: 40%"></span>
+      <span style="left: 90%; top: 50%"></span>
+      <span style="left: 20%; top: 70%"></span>
+      <span style="left: 40%; top: 80%"></span>
+      <span style="left: 60%; top: 90%"></span>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      document
+        .getElementById("revealMessage")
+        .addEventListener("click", function () {
+          document.getElementById("message").style.display = "block";
+          document.querySelector(".confetti").style.display = "block";
+
+          setTimeout(function () {
+            document.querySelector(".confetti").style.display = "none";
+          }, 5000);
+        });
+
+      // Countdown to Yara's birthday
+      const targetDate = new Date("January 27, 2025 00:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const timeLeft = targetDate - now;
+
+        if (timeLeft <= 0) {
+          document.getElementById("countdown").innerHTML =
+            "Happy Birthday Yara! 🎉";
+          return;
+        }
+
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = `
+          <strong>${days}</strong> days <strong>${hours}</strong> hours <strong>${minutes}</strong> minutes <strong>${seconds}</strong> seconds until Yara's Birthday!
+        `;
+      }
+
+      setInterval(updateCountdown, 1000); // Update every second
+    </script>
+  </body>
+</html>
